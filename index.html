@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Swathy — Portfolio</title>
+  <script defer src="./script.js"></script>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#008aa7;   /* teal-ish blue */
+      --bg: #f6fbfd;
+      --card: #ffffff;
+      --muted: #6b6b6b;
+      --radius: 12px;
+      --max-width: 960px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg)
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .container{
+      width:100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    /* Header / hero */
+    header.hero{
+      background: var(--accent);
+      color: #fff;
+      padding: 34px 16px;
+      text-align: center;
+      border-radius: 6px;
+      margin-bottom: 28px;
+    }
+    .hero h1{
+      margin: 6px 0 4px;
+      font-weight:800;
+      font-size: clamp(22px, 6vw, 34px);
+    }
+    .hero p.lead{
+      margin: 0 0 12px;
+      font-weight:700;
+      font-size: clamp(14px, 3.2vw, 20px);
+      opacity: 0.95;
+    }
+
+    /* Nav inside hero */
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap: 24px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+      font-weight:700;
+    }
+    .nav a{
+      color: #fff;
+      text-decoration:none;
+      padding:8px 10px;
+      transition:transform .14s ease;
+    }
+    .nav a:hover{ transform: translateY(-3px); text-decoration:underline; }
+
+    /* Section heading */
+    section{ margin-bottom: 36px; }
+    h2.section-title{
+      color: var(--accent);
+      margin: 10px 0 18px;
+      font-size: 22px;
+    }
+
+    /* Card style used for About, Education, Projects, Contact content */
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(12,20,30,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    /* About text bigger and slightly bold for emphasis similar to screenshot */
+    .about-text{
+      font-weight:600;
+      color:#222;
+    }
+
+    /* Education block */
+    .education .degree{
+      font-weight:700;
+      margin-bottom: 8px;
+    }
+    .education .details{ color:var(--muted); font-weight:600; }
+
+    /* Skills pills */
+    .skills-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+    .skill-pill{
+      background: linear-gradient(180deg, rgba(0,138,167,0.95), rgba(0,120,145,0.98));
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight:700;
+      box-shadow: 0 6px 14px rgba(0,138,167,0.12);
+      font-size:14px;
+      letter-spacing: .2px;
+    }
+
+    /* Projects list */
+    .project-list{
+      display:block;
+      gap:12px;
+    }
+    .project-item{
+      margin-bottom:12px;
+      font-weight:700;
+    }
+    .project-desc{ color:var(--muted); font-weight:600; }
+
+    /* Contact */
+    .contact-item{ font-weight:700; margin:8px 0; }
+    .contact-item a{ color:var(--accent); text-decoration:underline; font-weight:700; }
+
+    /* small hero top spacing for mobile */
+    .hero .profile-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin-bottom:6px;
+    }
+    .profile-photo{
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      background: #fff;
+      display:inline-block;
+      overflow:hidden;
+      border: 4px solid rgba(255,255,255,0.12);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .profile-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Responsive */
+    @media(min-width:860px){
+      .hero{
+        padding:36px 32px;
+        border-radius:10px;
+      }
+      .nav{ gap:40px; font-size:18px; }
+      .container{ padding: 36px; }
+    }
+
+    /* Small nice spacing for card inner text paragraphs to match screenshot alignment */
+    .card p{ margin:0; }
+
+    /* Add subtle wide layout cards */
+    .card--spacious{ padding:26px 28px; }
+
+    /* Footer small */
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin:18px 0 40px; }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- Header / hero -->
+    <header class="hero" id="home">
+      <div class="profile-row">
+        <!-- placeholder profile photo - replace src with your image path -->
+        <div class="profile-photo" aria-hidden="true">
+          <img src="https://i.supaimg.com/46247f1b-c93c-4ef2-9a18-a5f3fb03cdbe.jpg"alt="Swathy profile">
+        </div>
+      </div>
+
+      <h1>swathy</h1>
+      <p class="lead">|| BCA student | Aspiring coder</p>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="card card--spacious">
+        <p class="about-text">
+          Hello! My name is <strong>swathy.</strong> I am currently pursuing <strong>BCA (2nd year)</strong>.
+          I have a strong interest in learning coding and building creative projects using technology.
+          My goal is to become a skilled developer and contribute to innovative software solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card card--spacious">
+        <div class="degree">Bachelor of Computer Applications (BCA) - II year</div>
+        <div class="details">
+          Focusing programming, databases, web development, and software concepts.
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <div class="skills-row" aria-hidden="false">
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Python (learning)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="card card--spacious">
+        <div class="project-list">
+          <div class="project-item">Portfolio website - <span class="project-desc">Designed and developed my personal portfolio using HTML &amp; CSS.</span></div>
+          <div class="project-item">Student management system - <span class="project-desc">Built a small project in C++ for managing student records.</span></div>
+          <div class="project-item">Basic calculator - <span class="project-desc">Created a web-based calculator using HTML, CSS, JavaScript.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card card--spacious">
+        <div class="contact-item">Email: <a href="mailto:swathy@example.com">swathy@example.com</a></div>
+        <div class="contact-item">Phone: <span>+91 84899 15854</span></div>
+      </div>
+    </section>
+
+    <footer>Made with ❤️ • Swathy — Portfolio</footer>
+  </main>
+
+  <!-- Small JS for smooth scroll -->
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
